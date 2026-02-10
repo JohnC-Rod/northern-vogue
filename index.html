@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Northern Vogue | Effortless Everyday Style</title>
+
+  <!-- Favicon - replace favicon.ico with your own icon file -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #050509;
+      --bg-soft: #101018;
+      --bg-softer: #161622;
+      --accent: #f2c14f;
+      --accent-soft: rgba(242, 193, 79, 0.12);
+      --accent-strong: #ffdd85;
+      --text-main: #f5f5f7;
+      --text-soft: #b3b3c2;
+      --text-muted: #77778a;
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --card-radius: 18px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+      --max-width: 1120px;
+      --nav-height: 72px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top, #22223b 0, #050509 55%);
+      color: var(--text-main);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* NAVBAR */
+    .nav-shell {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(24px);
+      background: linear-gradient(to bottom, rgba(5, 5, 9, 0.9), rgba(5, 5, 9, 0.75));
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    nav {
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #fff 0, #f8f8f8 16%, #e0e0e0 40%, #b3b3b3 75%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 10px 25px rgba(0, 0, 0, 0.65);
+      overflow: hidden;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .brand-text span:first-child {
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      font-size: 0.75rem;
+    }
+
+    .brand-text span:last-child {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.18em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.86rem;
+      color: var(--text-soft);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-pill {
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.55rem 1.25rem;
+      border: none;
+      font-size: 0.86rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.18s ease, color 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #221608;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.7);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+    }
+
+    .btn-ghost {
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(12, 12, 20, 0.7);
+      color: var(--text-soft);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-1px);
+    }
+
+    .btn span.icon {
+      font-size: 1rem;
+    }
+
+    .nav-toggle {
+      display: none;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(5, 5, 9, 0.9);
+      border-radius: 999px;
+      padding: 0.4rem 0.65rem;
+      font-size: 0.9rem;
+    }
+
+    /* HERO */
+    main {
+      flex: 1;
+    }
+
+    .hero {
+      padding: 3.25rem 0 3.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2.75rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-tag-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #fff 0, #ffb347 40%, #ff6a00 85%);
+      box-shadow: 0 0 18px rgba(255, 170, 51, 0.85);
+    }
+
+    .hero-tag span.accent {
+      color: var(--accent-strong);
+      font-weight: 500;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: clamp(2.6rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-title span.script {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--accent-strong);
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-soft);
+      max-width: 34rem;
+      line-height: 1.7;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-subtitle strong {
+      color: var(--accent-strong);
+      font-weight: 500;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .meta-label {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+    }
+
+    .meta-value {
+      font-weight: 500;
+      color: var(--accent-strong);
+    }
+
+    /* HERO RIGHT */
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      position: relative;
+      border-radius: 24px;
+      background: radial-gradient(circle at 10% 0, rgba(242, 193, 79, 0.22), transparent 56%), #0d0d16;
+      padding: 1.25rem 1.25rem 1.35rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-pill {
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.72rem;
+    }
+
+    .hero-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #46e6a7;
+      box-shadow: 0 0 14px rgba(70, 230, 167, 0.9);
+    }
+
+    .hero-card-main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: 1.2rem;
+      align-items: center;
+    }
+
+    .look-card-main-img {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      border-radius: 22px;
+      background: linear-gradient(145deg, #2c2c3e 0, #101018 40%, #111118 100%);
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .look-placeholder {
+      width: 92%;
+      height: 88%;
+      border-radius: 20px;
+      background: radial-gradient(circle at 20% 0, rgba(255, 255, 255, 0.06), transparent 46%),
+        linear-gradient(165deg, #1c1c28 0, #11111a 50%, #151521 100%);
+      margin-bottom: 0.35rem;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .look-photo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 1;
+    }
+
+    .look-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 24% 18% auto;
+      height: 58%;
+      border-radius: 999px 999px 40px 40px;
+      background:
+        radial-gradient(circle at 45% 0, rgba(255, 255, 255, 0.3) 0, transparent 50%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.18) 0, rgba(255, 255, 255, 0.05) 28%, transparent 65%),
+        linear-gradient(180deg, #20202f 0, #151521 45%, #111118 90%);
+      filter: drop-shadow(0 18px 35px rgba(0, 0, 0, 0.9));
+    }
+
+    .look-tag {
+      position: absolute;
+      left: 1rem;
+      top: 0.8rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.5);
+      color: var(--accent-strong);
+      font-size: 0.7rem;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(16px);
+    }
+
+    .look-fade {
+      position: absolute;
+      inset: auto 0 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(5, 5, 9, 0.9), transparent);
+    }
+
+    .look-caption {
+      position: relative;
+      padding: 0.7rem 0.9rem 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      z-index: 2;
+      font-size: 0.8rem;
+    }
+
+    .look-caption-title {
+      font-weight: 500;
+    }
+
+    .look-caption-sub {
+      color: var(--text-soft);
+      font-size: 0.7rem;
+    }
+
+    .look-price {
+      font-weight: 600;
+      color: var(--accent-strong);
+    }
+
+    .hero-card-right-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .hero-card-stat {
+      padding: 0.75rem 0.8rem;
+      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      font-size: 0.78rem;
+    }
+
+    .hero-card-stat strong {
+      font-size: 1rem;
+      color: var(--accent-strong);
+    }
+
+    .hero-card-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      font-size: 0.72rem;
+    }
+
+    .chip {
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(5, 5, 9, 0.85);
+      color: var(--text-soft);
+    }
+
+    .hero-card-footer {
+      margin-top: 0.35rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .hero-safe-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .hero-safe-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #46e6a7;
+      box-shadow: 0 0 14px rgba(70, 230, 167, 0.9);
+    }
+
+    /* SECTION WRAPPER */
+    section {
+      padding: 2.25rem 0 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.25rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .section-label {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 500;
+    }
+
+    .section-subtitle {
+      font-size: 0.82rem;
+      color: var(--text-soft);
+      max-width: 22rem;
+    }
+
+    /* PRODUCT GRID */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+
+    .product-card {
+      border-radius: var(--card-radius);
+      background: rgba(5, 5, 12, 0.9);
+      border: 1px solid var(--border-subtle);
+      padding: 0.85rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+      cursor: pointer;
+    }
+
+    .product-img {
+      border-radius: 14px;
+      background: radial-gradient(circle at 10% 0, rgba(242, 193, 79, 0.12), transparent 55%),
+        linear-gradient(145deg, #222237 0, #171724 45%, #111119 100%);
+      aspect-ratio: 3 / 4;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-img::after {
+      content: 'New';
+      position: absolute;
+      left: 0.7rem;
+      top: 0.7rem;
+      font-size: 0.68rem;
+      padding: 0.14rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: var(--accent-strong);
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+      border-color: rgba(242, 193, 79, 0.65);
+      background: radial-gradient(circle at top, rgba(242, 193, 79, 0.14), rgba(5, 5, 12, 0.98));
+    }
+
+    .product-info-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.6rem;
+      align-items: flex-start;
+      font-size: 0.82rem;
+    }
+
+    .product-name {
+      font-weight: 500;
+    }
+
+    .product-collection {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .product-price {
+      font-weight: 600;
+      color: var(--accent-strong);
+      font-size: 0.86rem;
+    }
+
+    .product-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    .product-badge {
+      padding: 0.18rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      font-size: 0.7rem;
+    }
+
+    .product-rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    /* COLLECTIONS */
+    .collection-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.3rem;
+      align-items: stretch;
+    }
+
+    .collection-card-large {
+      border-radius: 20px;
+      background: radial-gradient(circle at top, rgba(242, 193, 79, 0.18), transparent 50%), #101018;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 1.3rem 1.4rem 1.3rem;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 1.4rem;
+    }
+
+    .collection-large-copy {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .collection-large-title {
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+
+    .collection-large-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .collection-large-img {
+      border-radius: 16px;
+      background: linear-gradient(135deg, #2b2b3f 0, #151520 50%, #101018 100%);
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16 / 11;
+    }
+
+    .collection-large-img::before {
+      content: '';
+      position: absolute;
+      inset: 15% 12% 0;
+      border-radius: 16px 16px 0 0;
+      background:
+        radial-gradient(circle at 25% 0, rgba(255, 255, 255, 0.2) 0, transparent 55%),
+        linear-gradient(150deg, rgba(255, 255, 255, 0.18) 0, rgba(255, 255, 255, 0.05) 28%, transparent 70%),
+        linear-gradient(180deg, #2b2b3f 0, #151520 45%, #101018 100%);
+    }
+
+    .collection-list {
+      display: grid;
+      grid-template-rows: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .collection-pill-card {
+      border-radius: 16px;
+      background: rgba(5, 5, 12, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.8rem 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.9rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+    }
+
+    .collection-pill-card:hover {
+      border-color: rgba(242, 193, 79, 0.7);
+      background: radial-gradient(circle at top, rgba(242, 193, 79, 0.16), rgba(5, 5, 12, 0.97));
+      transform: translateY(-2px);
+    }
+
+    .collection-pill-label {
+      font-weight: 500;
+    }
+
+    .collection-pill-meta {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+
+    /* WHY US */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .why-card {
+      border-radius: 18px;
+      padding: 0.9rem 0.95rem;
+      background: rgba(5, 5, 12, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.65);
+      font-size: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .why-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .why-title {
+      font-weight: 500;
+      margin-bottom: 0.1rem;
+    }
+
+    .why-copy {
+      color: var(--text-soft);
+      font-size: 0.78rem;
+    }
+
+    /* SOCIAL PROOF */
+    .social-strip {
+      margin-top: 2.2rem;
+      padding: 0.9rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.05), rgba(5, 5, 9, 0.95));
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.85rem;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .social-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* NEWSLETTER + CONTACT */
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.5rem;
+      padding: 2.5rem 0 2.4rem;
+    }
+
+    .newsletter-card,
+    .contact-card {
+      border-radius: 20px;
+      background: rgba(5, 5, 12, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 1.4rem 1.35rem;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.85rem;
+    }
+
+    .newsletter-title,
+    .contact-title {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .newsletter-sub,
+    .contact-sub {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      margin-bottom: 1rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .newsletter-input-wrap {
+      flex: 1;
+      min-width: 0;
+      position: relative;
+    }
+
+    .newsletter-input {
+      width: 100%;
+      padding: 0.65rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(5, 5, 10, 0.95);
+      color: var(--text-main);
+      font-size: 0.82rem;
+      outline: none;
+    }
+
+    .newsletter-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .newsletter-note {
+      margin-top: 0.6rem;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .contact-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      min-width: 68px;
+    }
+
+    .contact-value a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 2px;
+    }
+
+    .contact-links-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 0.6rem;
+      font-size: 0.75rem;
+    }
+
+    .contact-link-pill {
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 1.2rem 0 1.6rem;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .footer-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .footer-links a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 2px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .hero {
+        padding-top: 2.4rem;
+      }
+
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .bottom-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .collection-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .collection-card-large {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      nav {
+        justify-content: space-between;
+      }
+
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.25rem;
+        color: var(--text-soft);
+      }
+
+      .hero {
+        padding-bottom: 2.2rem;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .social-strip {
+        border-radius: 18px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .product-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .why-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <!-- NAVBAR -->
+    <header class="nav-shell">
+      <div class="shell">
+        <nav>
+          <a href="#top" class="brand">
+            <div class="brand-mark">
+              <!-- Replace this path with your exported logo file -->
+              <img src="img/northern-vogue-logo.png" alt="Northern Vogue logo">
+            </div>
+            <div class="brand-text">
+              <span>NORTHERN VOGUE</span>
+              <span>EVERYDAY STREET STYLE</span>
+            </div>
+          </a>
+
+          <div class="nav-links">
+            <a href="#new">New Arrivals</a>
+            <a href="#collections">Collections</a>
+            <a href="#about">Why Northern Vogue</a>
+            <a href="#contact">Contact</a>
+          </div>
+
+          <div class="nav-cta">
+            <div class="nav-pill">Worldwide shipping · Shop in comfort</div>
+            <a href="#new" class="btn btn-primary">
+              <span>Shop now</span>
+              <span class="icon">➜</span>
+            </a>
+          </div>
+
+          <button class="nav-toggle" type="button" aria-label="Menu (static demo)">
+            <span>Menu</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- CLOSURE SALE BANNER -->
+      <section class="closure-sale-banner" style="padding:0; margin:0; text-align:center;">
+  <img src="img/closure-sale-horizontal-v3.png" 
+       alt="Northern Vogue Closure Sale Banner" 
+       style="
+         width:100%; 
+         max-width:1400px;
+         margin:0 auto;
+         display:block;
+         border-radius:12px; 
+         box-shadow:0 18px 40px rgba(0,0,0,0.35); 
+         transition:0.4s ease;
+       ">
+</section>
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="shell hero-grid">
+          <div class="hero-left">
+            <div class="hero-tag">
+              <span class="hero-tag-dot"></span>
+              <span><span class="accent">New drop</span> · Northern comfort, city edge</span>
+            </div>
+
+            <h1 class="hero-title">
+              Effortless pieces for your
+              <span class="script">everyday story.</span>
+            </h1>
+
+            <p class="hero-subtitle">
+              Northern Vogue curates elevated streetwear and cozy essentials so you can
+              <strong>feel put‑together without overthinking every outfit</strong> — from coffee runs to long‑haul flights.
+            </p>
+
+            <div class="hero-cta-row">
+              <a href="#new" class="btn btn-primary">
+                <span>Explore new arrivals</span>
+                <span class="icon">⟶</span>
+              </a>
+              <a href="#collections" class="btn btn-ghost">
+                <span>View all collections</span>
+              </a>
+            </div>
+
+            <div class="hero-meta-row">
+              <div class="meta-item">
+                <div class="meta-label">Based online</div>
+                <div class="meta-value">thenorthernvogue.com</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Designed for</div>
+                <div>Travel days · Chill days · Work days</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Core vibe</div>
+                <div>Minimal · Cozy · Confident</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-right">
+            <div class="hero-card">
+              <div class="hero-card-header">
+                <div class="hero-pill">
+                  <span class="hero-pill-dot"></span>
+                  <span>Look of the day</span>
+                </div>
+                <span>Curated by Northern Vogue</span>
+              </div>
+
+              <div class="hero-card-main">
+                <div class="look-card-main-img">
+                  <div class="look-placeholder">
+                    <!-- HERO MAIN PHOTO - update this file with your favourite Northern Vogue look -->
+                    <img src="img/hero-lady.jpg" alt="Northern Vogue airport-ready outfit" class="look-photo">
+                    <div class="look-tag">Airport‑ready set</div>
+                    <div class="look-fade"></div>
+                    <div class="look-caption">
+                      <div>
+                        <div class="look-caption-title">CloudSoft Travel Co‑ord</div>
+                        <div class="look-caption-sub">Relaxed fit · Wrinkle‑friendly</div>
+                      </div>
+                      <div class="look-price">$69</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="hero-card-right-col">
+                  <div class="hero-card-stat">
+                    <div>
+                      <div class="meta-label">New in</div>
+                      <div>Soft fleeced interior, straight leg silhouette, adjustable waistband.</div>
+                    </div>
+                    <div>
+                      <strong>3</strong>
+                      <div style="font-size:0.7rem;color:var(--text-muted);">colourways</div>
+                    </div>
+                  </div>
+
+                  <div class="hero-card-stat">
+                    <div>
+                      <div class="meta-label">Perfect for</div>
+                      <div>Red‑eye flights, study days, weekend coffee runs.</div>
+                    </div>
+                  </div>
+
+                  <div class="hero-card-chip-row">
+                    <div class="chip">Unisex fit</div>
+                    <div class="chip">S–XXL sizing</div>
+                    <div class="chip">Easy‑care fabric</div>
+                    <div class="chip">Pair with sneakers</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hero-card-footer">
+                <div>
+                  <div style="font-size:0.7rem;margin-bottom:0.1rem;">Bundle offer</div>
+                  <div>Save more when you pair tops & bottoms from the same set.</div>
+                </div>
+
+                <div class="hero-safe-badge">
+                  <span class="hero-safe-dot"></span>
+                  <span>Secure checkout · Easy support</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEW ARRIVALS -->
+      <section id="new">
+        <div class="shell">
+          <div class="section-header">
+            <div>
+              <div class="section-label">New arrivals</div>
+              <h2 class="section-title">Pieces you&#8217;ll want to wear on repeat</h2>
+            </div>
+            <p class="section-subtitle">
+              Swap the stress of outfit planning for easy sets, soft layers, and everyday favourites.
+              Replace these cards with the real products from your Shopify store.
+            </p>
+          </div>
+
+          <div class="product-grid">
+            <!-- Product card template - duplicate & update for your products -->
+            <article class="product-card">
+              <div class="product-img">
+                <!-- PRODUCT 1 PHOTO - Men's corduroy co-ord -->
+                <img src="img/product-men-corduroy.jpg" alt="Northern Vogue men's corduroy co-ord set">
+              </div>
+              <div class="product-info-top">
+                <div>
+                  <div class="product-name">CloudSoft Oversized Hoodie</div>
+                  <div class="product-collection">Core Comfort Collection</div>
+                </div>
+                <div class="product-price">$45</div>
+              </div>
+              <div class="product-meta-row">
+                <div class="product-badge">S–XL · 3 colours</div>
+                <div class="product-rating">
+                  <span>★ 4.8</span>
+                  <span>· 128 reviews</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-img">
+                <!-- PRODUCT 2 PHOTO - Women's black coat outfit -->
+                <img src="img/product-women-black-coat.jpg" alt="Northern Vogue women's black coat outfit">
+              </div>
+              <div class="product-info-top">
+                <div>
+                  <div class="product-name">Midnight Cargo Joggers</div>
+                  <div class="product-collection">Urban Night Run</div>
+                </div>
+                <div class="product-price">$49</div>
+              </div>
+              <div class="product-meta-row">
+                <div class="product-badge">Adjustable waist</div>
+                <div class="product-rating">
+                  <span>★ 4.7</span>
+                  <span>· 96 reviews</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-img">
+                <!-- PRODUCT 3 PHOTO - Women's brown jacket outfit -->
+                <img src="img/product-women-brown-jacket.jpg" alt="Northern Vogue women's brown jacket look">
+              </div>
+              <div class="product-info-top">
+                <div>
+                  <div class="product-name">Northwind Puffer Jacket</div>
+                  <div class="product-collection">Winter City Layer</div>
+                </div>
+                <div class="product-price">$89</div>
+              </div>
+              <div class="product-meta-row">
+                <div class="product-badge">Lightweight warmth</div>
+                <div class="product-rating">
+                  <span>★ 4.9</span>
+                  <span>· 54 reviews</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-img">
+                <!-- PRODUCT 4 PHOTO - Beige fuzzy cardigan outfit -->
+                <img src="img/product-women-cardigan.jpg" alt="Northern Vogue beige fuzzy cardigan outfit">
+              </div>
+              <div class="product-info-top">
+                <div>
+                  <div class="product-name">Everyday Ribbed Tank</div>
+                  <div class="product-collection">Layering Basics</div>
+                </div>
+                <div class="product-price">$25</div>
+              </div>
+              <div class="product-meta-row">
+                <div class="product-badge">Soft stretch</div>
+                <div class="product-rating">
+                  <span>★ 4.6</span>
+                  <span>· 72 reviews</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- COLLECTIONS / STORY -->
+      <section id="collections">
+        <div class="shell">
+          <div class="section-header">
+            <div>
+              <div class="section-label">Collections</div>
+              <h2 class="section-title">Built around real life, not runways</h2>
+            </div>
+            <p class="section-subtitle">
+              From early flights to late‑night study sessions, Northern Vogue pieces are made to move with you — not
+              the other way around.
+            </p>
+          </div>
+
+          <div class="collection-row">
+            <article class="collection-card-large">
+              <div class="collection-large-copy">
+                <h3 class="collection-large-title">Core Comfort Capsule</h3>
+                <p>
+                  Your grab‑and‑go edit of hoodies, joggers, and tops that always match — so you can pack light,
+                  repeat outfits, and still feel fresh in every photo.
+                </p>
+                <div class="collection-large-meta">
+                  <span>• Neutral, easy‑pair colours</span>
+                  <span>• Soft on skin, low‑maintenance fabrics</span>
+                  <span>• Designed for airports, classrooms, and coffee shops</span>
+                </div>
+                <div>
+                  <a href="#new" class="btn btn-ghost" style="margin-top:0.4rem;">
+                    Shop capsule picks
+                  </a>
+                </div>
+              </div>
+
+              <div class="collection-large-img"></div>
+            </article>
+
+            <div class="collection-list">
+              <article class="collection-pill-card">
+                <div>
+                  <div class="collection-pill-label">Weekend Chill</div>
+                  <div class="collection-pill-meta">Boxy tees, loose shorts, and sweats made for movie nights and errands.</div>
+                </div>
+                <div style="font-size:0.9rem;">⟶</div>
+              </article>
+
+              <article class="collection-pill-card">
+                <div>
+                  <div class="collection-pill-label">Night Run</div>
+                  <div class="collection-pill-meta">All‑black staples and reflective details that look good from 5 pm to 2 am.</div>
+                </div>
+                <div style="font-size:0.9rem;">⟶</div>
+              </article>
+
+              <article class="collection-pill-card">
+                <div>
+                  <div class="collection-pill-label">Travel Light</div>
+                  <div class="collection-pill-meta">Wrinkle‑friendly layers that keep you comfy from gate to gate.</div>
+                </div>
+                <div style="font-size:0.9rem;">⟶</div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHY NORTHERN VOGUE -->
+      <section id="about">
+        <div class="shell">
+          <div class="section-header">
+            <div>
+              <div class="section-label">Why Northern Vogue</div>
+              <h2 class="section-title">Made for people who live in hoodies and sneakers</h2>
+            </div>
+            <p class="section-subtitle">
+              Northern Vogue started as a small online shop and grew with one promise: clothes should feel as good as
+              they look — especially on busy days.
+            </p>
+          </div>
+
+          <div class="why-grid">
+            <article class="why-card">
+              <div class="why-icon">🧵</div>
+              <h3 class="why-title">Comfort‑first fabrics</h3>
+              <p class="why-copy">
+                We pick soft, breathable materials that still hold their shape, so your favourites don&#8217;t sag or
+                scratch after a few washes.
+              </p>
+            </article>
+
+            <article class="why-card">
+              <div class="why-icon">🧺</div>
+              <h3 class="why-title">Easy care</h3>
+              <p class="why-copy">
+                Most pieces are low‑maintenance: think machine‑washable, wrinkle‑friendly, and colour‑holding — ideal
+                for real life, not just photoshoots.
+              </p>
+            </article>
+
+            <article class="why-card">
+              <div class="why-icon">📦</div>
+              <h3 class="why-title">Thoughtful fulfillment</h3>
+              <p class="why-copy">
+                Behind the scenes, we work with trusted partners to pack, ship, and track your orders so they get to
+                you in one piece.
+              </p>
+            </article>
+
+            <article class="why-card">
+              <div class="why-icon">💬</div>
+              <h3 class="why-title">Human support</h3>
+              <p class="why-copy">
+                Questions about fit, tracking, or returns? Reach out and a real person will assist you — not just an
+                auto‑reply.
+              </p>
+            </article>
+          </div>
+
+          <div class="social-strip">
+            <span>Hundreds of orders shipped across different countries</span>
+            <span class="social-dot"></span>
+            <span>Perfect for students, young professionals, and travellers</span>
+            <span class="social-dot"></span>
+            <span>Built slowly, with real people in mind — not fast‑fashion chaos</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEWSLETTER + CONTACT -->
+      <section id="contact">
+        <div class="shell bottom-grid">
+          <article class="newsletter-card">
+            <h2 class="newsletter-title">Stay in the Northern loop</h2>
+            <p class="newsletter-sub">
+              Be the first to know about new drops, restocks, and exclusive Northern Vogue bundles.
+              Replace this with your real email marketing tool later (Klaviyo, Shopify Email, etc.).
+            </p>
+
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('This is a static demo. Connect this form to your email tool.');">
+              <div class="newsletter-input-wrap">
+                <input type="email" class="newsletter-input" placeholder="Enter your best email" required>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                <span>Get early access</span>
+              </button>
+            </form>
+
+            <p class="newsletter-note">
+              No spam — just cozy fits and chill updates. Unsubscribe anytime.
+            </p>
+          </article>
+
+          <article class="contact-card">
+            <h2 class="contact-title">Need help with an order?</h2>
+            <p class="contact-sub">
+              Reach out if you have questions about sizes, shipping, or anything else. We&#8217;re happy to help.
+            </p>
+
+            <div class="contact-item">
+              <div class="contact-label">Email</div>
+              <div class="contact-value">
+                <!-- When customers click this, it will open their email app with your address filled in. -->
+                <a href="mailto:support@thenorthernvogue.com">support@thenorthernvogue.com</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-label">Website</div>
+              <div class="contact-value">
+                <a href="https://thenorthernvogue.com" target="_blank" rel="noreferrer">thenorthernvogue.com</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-label">Social</div>
+              <div class="contact-value">
+                <div class="contact-links-row">
+                  <a class="contact-link-pill" href="#" target="_blank" rel="noreferrer">Instagram</a>
+                  <a class="contact-link-pill" href="#" target="_blank" rel="noreferrer">Facebook</a>
+                  <a class="contact-link-pill" href="#" target="_blank" rel="noreferrer">TikTok</a>
+                </div>
+              </div>
+            </div>
+
+            <p class="newsletter-note" style="margin-top:1rem;">
+              Tip: In Shopify, you can connect this page to your actual product collections and cart. Use this layout as
+              your visual base.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="shell footer-row">
+        <div>© <span id="year"></span> Northern Vogue. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="#top">Back to top</a>
+          <a href="#">Shipping & Returns</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
